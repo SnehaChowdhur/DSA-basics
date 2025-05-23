@@ -9,7 +9,7 @@ int linearSearch(int key, int size, int* arr);
 int main()
 {
     int s,k;
-    int* arr;
+    int* arr=NULL;
     int choice;
     while(1)
     {
