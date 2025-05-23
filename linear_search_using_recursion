@@ -4,7 +4,7 @@
 
 void init(int** arr,int size);
 void input(int* arr,int size);
-int linearSearch(int key, int size, int* arr);
+int linearSearch(int key, int start, int end, int* arr);
 
 int main()
 {
@@ -27,7 +27,7 @@ int main()
             case 2:
                 printf("\nEnter the number to search: ");
                 scanf("%d",&k);
-                printf("%d\n",linearSearch(k,s,arr));
+                printf("\nINDEX: %d\n",linearSearch(k,0,s-1,arr));
                 break;
             case 0:
                 printf("\nGOOD BYE!!");
@@ -65,23 +65,18 @@ int linearSearch(int key, int size, int* arr)
     return a+1;
 }
 */
-int linearSearch(int key, int size, int* arr)
+int linearSearch(int key, int start, int end, int* arr)
 {
-    int start=0,end=size;
-    if(start>size)
+    if(start>end)
     {
         return -1;
     }
     if(arr[start]==key)
     {
-        return start+1;
-    }
-    if(arr[end]==key)
-    {
-        return end+1;
+        return start;
     }
     else
     {
-        linearSearch(key,size-1,arr);
+        linearSearch(key,start+1,end,arr);
     }
 }
