@@ -21,25 +21,49 @@ int main()
 {
     //
     node* r=NULL;
-    createNode(100);
-    insertNode(&r, 100);
-    insertNode(&r, 90);
-    insertNode(&r, 80);
-    insertNode(&r, 10);
-    insertNode(&r, 20);
-    insertNode(&r, 50);
-    insertNode(&r, 40);
-    printf("In-order: ");
-    inOrder(r);
-    printf("\n");
-    printf("Post-order: ");
-    postOrder(r);
-    printf("\n");
-    printf("Pre-order: ");
-    preOrder(r);
-    printf("\n");
-    max(r);
-    min(r);
+    int choice, d;
+    while(1)
+    {
+        printf("\n---BST MENU---\n1.Node insertion\n2.In-Order Arrangement\n3.Post-Order Arrangement\n4.Pre-Order Arrangement\n5.Maximum value\n6.Minimum value\n0.Exit\nMy choice is: ");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+                printf("Enter the data: ");
+                scanf("%d",&d);
+                insertNode(&r,d);
+                printf("Node is successfully created.\n");
+                break;
+            case 2:
+                printf("In-order: ");
+                inOrder(r);
+                printf("\n");
+                break;
+            case 3:
+                printf("Post-order: ");
+                postOrder(r);
+                printf("\n");
+                break;
+            case 4:
+                printf("Pre-order: ");
+                preOrder(r);
+                printf("\n");
+                break;
+            case 5:
+                max(r);
+                break;
+            case 6:
+                min(r);
+                break;
+            case 0:
+                printf("GOOD BYEEE!!");
+                return 0;
+                break;
+            default:
+                printf("Sorry!Wrong Choice, Try again Later!!");
+                break;
+        }
+    }
     return 0;
 }
 
